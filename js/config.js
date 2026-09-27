@@ -1,6 +1,11 @@
 const EVENTO = {
   quinceanera: "Scarlett",
   edad: 15,
+ 
+    personalizacionInvitados: {
+    habilitada: true,
+    archivo: "invitados.json"
+  },
 
   fecha: "03 de octubre de 2026",
   hora: "7:00 PM",

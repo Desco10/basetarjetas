@@ -1,0 +1,20 @@
+[
+  {
+    "id": "carlos-martinez",
+    "nombre": "Carlos",
+    "apellido": "Martínez",
+    "acompanantes": 2
+  },
+  {
+    "id": "laura-gomez",
+    "nombre": "Laura",
+    "apellido": "Gómez",
+    "acompanantes": 1
+  },
+  {
+    "id": "maria-lopez",
+    "nombre": "María",
+    "apellido": "López",
+    "acompanantes": 0
+  }
+]
