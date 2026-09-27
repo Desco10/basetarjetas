@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Scarlett Mariana | Mis XV Años ✨</title>
+
+<!-- =========================================================
+     XV EXPERIENCE - OPEN GRAPH
+     INVITACIÓN DIGITAL DE XV AÑOS
+     SCARLET MARIANA
+     ========================================================= -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:site_name"
+      content="XV Experience">
+
+<meta property="og:locale"
+      content="es_CO">
+
+<meta property="og:title"
+      content="Scarlett Mariana | Mis XV Años ✨">
+
+<meta property="og:description"
+      content="Una noche mágica está por comenzar... Celebra conmigo el inicio de una nueva etapa. Te espero en mis XV años.">
+
+<meta property="og:url"
+      content="https://scarlettmariana.netlify.app/">
+
+<meta property="og:image"
+      content="https://scarlettmariana.netlify.app/assets/images/15anos-v2.jpg">
+
+<meta property="og:image:secure_url"
+      content="https://scarlettmariana.netlify.app/assets/images/15anos-v2.jpg">
+
+<meta property="og:image:type"
+      content="image/jpeg">
+
+<meta property="og:image:width"
+      content="1024">
+
+<meta property="og:image:height"
+      content="768">
+
+<meta property="og:image:alt"
+      content="Scarlet Mariana - Invitación de XV Años">
+
+
+<!-- =========================================================
+     TWITTER / X
+     ========================================================= -->
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="Scarlett Mariana | Mis XV Años ✨">
+
+<meta name="twitter:description"
+      content="Una noche mágica está por comenzar... Celebra conmigo el inicio de una nueva etapa. Te espero en mis XV años.">
+
+<meta name="twitter:image"
+      content="https://scarlettmariana.netlify.app/assets/images/15anos-v2.jpg">
+
+<meta name="twitter:image:alt"
+      content="Scarlett Mariana - Invitación de XV Años">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">    
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+
+<!-- ==========================================
+     MODAL CONFIRMACIÓN WHATSAPP
+========================================== -->
+
+<div
+  class="rsvp-modal"
+  id="rsvpModal"
+  aria-hidden="true"
+>
+
+  <div class="rsvp-modal-overlay"></div>
+
+  <div
+    class="rsvp-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="rsvpModalTitle"
+  >
+
+    <button
+      type="button"
+      class="rsvp-modal-close"
+      id="rsvpModalClose"
+      aria-label="Cerrar"
+    >
+      ×
+    </button>
+
+    <p class="section-eyebrow">
+      Confirmación de asistencia
+    </p>
+
+    <h2 id="rsvpModalTitle">
+      ¡Qué alegría contar contigo!
+    </h2>
+
+    <p class="rsvp-modal-text" id="rsvpModalText">
+      Por favor, indícanos tu nombre y apellido.
+    </p>
+
+    <form id="rsvpForm">
+
+      <div class="rsvp-field">
+
+        <label for="rsvpNombre">
+          Nombre
+        </label>
+
+        <input
+          type="text"
+          id="rsvpNombre"
+          name="nombre"
+          placeholder="Tu nombre"
+          autocomplete="given-name"
+          maxlength="40"
+          required
+        />
+
+      </div>
+
+      <div class="rsvp-field">
+
+        <label for="rsvpApellido">
+          Apellido
+        </label>
+
+        <input
+          type="text"
+          id="rsvpApellido"
+          name="apellido"
+          placeholder="Tu apellido"
+          autocomplete="family-name"
+          maxlength="40"
+          required
+        />
+
+      </div>
+
+      <button
+        type="submit"
+        class="btn-whatsapp"
+        id="btnEnviarWhatsapp"
+      >
+        Confirmar por WhatsApp
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+
+
+<body>
+
+    <div
+  class="petals-container"
+  id="petalsContainer"
+  aria-hidden="true"
+></div>
+
+<div
+  class="butterflies-container"
+  id="butterfliesContainer"
+  aria-hidden="true"
+></div>
+
+  <!-- =========================
+       PANTALLA DE APERTURA
+  ========================== -->
+  <section class="intro" id="intro">
+
+    <div class="intro-overlay"></div>
+
+    <div class="intro-content">
+
+      <p class="intro-small">Estás invitado a</p>
+
+      <h1 id="introTitulo">Mis XV Años</h1>
+
+      <p class="intro-name" id="introNombre">Scarlett</p>
+
+      <button class="btn-open" id="btnAbrir">
+        Abrir invitación
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTENIDO PRINCIPAL
+  ========================== -->
+  <main class="invitation" id="invitacion">
+
+    <!-- HERO -->
+    <section class="hero section fx-fade-up">
+
+      <div class="hero-content">
+
+        <p class="section-eyebrow">Celebremos juntos</p>
+
+        <h2 id="heroNombre">
+          Scarlett
+        </h2>
+
+        <p class="hero-xv">
+          Mis XV Años
+        </p>
+
+        <div class="divider">
+          ✦
+        </div>
+
+        <p class="hero-text">
+          Hay momentos en la vida que soñamos,
+          imaginamos y esperamos con ilusión.
+          Hoy quiero compartir uno de ellos contigo.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOTO PRINCIPAL -->
+    <section class="main-photo section fx-zoom">
+
+      <div class="photo-frame">
+        <img
+          src="assets/images/portada.jpeg"
+          alt="Foto de la quinceañera"
+          id="fotoPrincipal"
+        />
+      </div>
+
+    </section>
+
+
+    <!-- CUENTA REGRESIVA -->
+<section class="countdown-section section fx-fade-up">
+
+  <!-- VESTIDO ANIMADO -->
+  <div class="dress-decoration" aria-hidden="true">
+    <img
+      src="assets/images/vestido-xv.png"
+      alt=""
+    />
+  </div>
+
+  <p class="section-eyebrow">
+    Falta muy poco
+  </p>
+
+  <h2>
+    Para este momento tan especial
+  </h2>
+
+      <div class="countdown" id="countdown">
+
+        <div class="countdown-item">
+          <span id="dias">00</span>
+          <small>Días</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="horas">00</span>
+          <small>Horas</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="minutos">00</span>
+          <small>Min</small>
+        </div>
+
+        <div class="countdown-item">
+          <span id="segundos">00</span>
+          <small>Seg</small>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MENSAJE -->
+    <section class="message section fx-tilt">
+
+      <div class="message-card">
+
+        <span class="decorative-symbol">
+          ❦
+        </span>
+
+        <p>
+          Quiero guardar en mi corazón
+          cada sonrisa, cada abrazo
+          y cada recuerdo de esta noche.
+        </p>
+
+        <p>
+          Por eso tu presencia será
+          muy especial para mí.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- GALERÍA XV -->
+   <section class="gallery-section childhood section fx-slide-right">
+
+      <p class="section-eyebrow">
+        Un sueño hecho realidad
+      </p>
+
+      <h2>
+        Mis XV
+      </h2>
+
+
+
+
+      <div class="carousel" data-carousel>
+
+    <div class="carousel-viewport">
+
+     <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img
+          src="assets/images/adulto.jpeg"
+          alt="Fotografía XV 1"
+          style="object-position: center 15%;"
+        />
+      </div>
+
+      <div class="carousel-slide">
+        <img
+          src="assets/images/portada2.jpeg"
+          alt="Fotografía XV 2"
+
+          style="object-position: center 15%;"
+        />
+      </div>
+
+      <div class="carousel-slide">
+        <img
+          src="assets/images/portada3.jpeg"
+          alt="Fotografía XV 3"
+          style="object-position: center 20%;"
+
+
+        />
+
+
+      </div>
+ 
+
+  <div class="carousel-slide">
+        <img
+          src="assets/images/portada4.jpeg"
+          alt="Fotografía XV 4"
+        />
+      </div>
+
+
+
+     </div>
+
+    </div>
+
+   <button
+    class="carousel-btn carousel-prev"
+    aria-label="Fotografía anterior"
+  >
+    ‹
+  </button>
+
+  <button
+    class="carousel-btn carousel-next"
+    aria-label="Siguiente fotografía"
+  >
+    ›
+  </button>
+
+  <div class="carousel-dots"></div>
+
+ </div>
+
+    </section>
+
+
+    <!-- RECUERDOS DE INFANCIA -->
+    <section class="gallery-section childhood section fx-slide-right">
+
+      <p class="section-eyebrow">
+        Mis recuerdos
+      </p>
+
+      <h2>
+        Un poquito de mi historia
+      </h2>
+
+      <div class="carousel" data-carousel>
+
+  <div class="carousel-viewport">
+
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img
+          src="assets/images/bebe.jpg"
+          alt="Recuerdo de infancia 1"
+          style="object-fit: contain;"
+        />
+      </div>
+
+      <div class="carousel-slide">
+        <img
+          src="assets/images/nina1.jpg"
+          alt="Recuerdo de infancia 2"
+         style="object-position: center 15%;"
+        />
+      </div>
+
+      <div class="carousel-slide">
+        <img
+          src="assets/images/portada1.jpeg"
+          alt="Recuerdo de infancia 3"
+          
+        />
+      </div>
+  
+
+ <div class="carousel-slide">
+        <img
+          src="assets/images/nina3.jpg"
+          alt="Recuerdo de infancia 4"
+          style="object-position: center 15%;"
+        />
+      </div>
+
+   
+ <div class="carousel-slide">
+        <img
+          src="assets/images/nina5.jpg"
+          alt="Recuerdo de infancia 5"
+            style="object-fit: contain;"
+        />
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+  <button
+    class="carousel-btn carousel-prev"
+    aria-label="Fotografía anterior"
+  >
+    ‹
+  </button>
+
+  <button
+    class="carousel-btn carousel-next"
+    aria-label="Siguiente fotografía"
+  >
+    ›
+  </button>
+
+  <div class="carousel-dots"></div>
+
+</div>
+
+    </section>
+
+
+    <!-- MENSAJE PADRES -->
+    <!-- PADRES -->
+<section class="parents section fx-fade-up">
+
+  <p class="section-eyebrow">
+    Con el amor de mis padres
+  </p>
+
+  <h2>
+    Una noche para recordar
+  </h2>
+
+  <p class="parents-message">
+    Con mucha alegría queremos compartir contigo
+    este momento tan especial en la vida de nuestra hija.
+  </p>
+
+  <div class="parents-names">
+
+    <p id="nombrePadre">
+      Nombre del padre
+    </p>
+
+    <span>&</span>
+
+    <p id="nombreMadre">
+      Nombre de la madre
+    </p>
+
+  </div>
+
+</section>
+
+
+    <!-- INFORMACIÓN EVENTO -->
+    <section class="event section fx-zoom">
+
+      <p class="section-eyebrow">
+        Guarda la fecha
+      </p>
+
+      <h2 id="fechaEvento">
+        03 de octubre de 2026
+      </h2>
+
+      <p class="event-time" id="horaEvento">
+        7:00 PM
+      </p>
+
+
+      <div class="event-card">
+
+        <span class="event-icon">
+          ♕
+        </span>
+
+        <h3 id="nombreLugar">
+          Salón Quinta Real 
+        </h3>
+
+        <p id="direccionLugar">
+          Dirección del evento
+        </p>
+
+        <a
+          href="#"
+          class="btn-secondary"
+          id="btnMaps"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver ubicación
+        </a>
+
+      </div>
+
+    </section>
+ 
+
+ 
+<!-- ==========================================
+     ITINERARIO
+========================================== -->
+
+<section
+  class="itinerario section fx-slide-left"
+  id="seccionItinerario"
+>
+
+  <p class="section-eyebrow">
+    Una noche para recordar
+  </p>
+
+  <h2>
+    Itinerario
+  </h2>
+
+  <p class="itinerario-intro">
+    Estos son algunos de los momentos que
+    compartiremos durante esta noche tan especial.
+  </p>
+
+  <div
+    class="timeline"
+    id="itinerario"
+  >
+  </div>
+
+</section>
+
+
+
+    <!-- ==========================================
+     VESTIMENTA
+========================================== -->
+
+<section
+  class="dress-code section fx-fade-up"
+  id="seccionDressCode"
+>
+
+  <p class="section-eyebrow">
+    Código de vestimenta
+  </p>
+
+  <h2>
+    Dress Code
+  </h2>
+
+  <p
+    id="vestimenta"
+    class="dress-style"
+  >
+    Elegante
+  </p>
+
+
+  <!-- COLORES RESERVADOS -->
+
+  <div
+    class="reserved-colors"
+    id="coloresReservados"
+  >
+
+    <p class="reserved-colors-title">
+      Colores reservados
+    </p>
+
+    <div
+      class="color-list"
+      id="listaColoresReservados"
+    ></div>
+
+    <p
+      class="reserved-colors-message"
+      id="mensajeColoresReservados"
+    ></p>
+
+  </div>
+
+</section>
+
+
+    <!-- REGALO -->
+<section class="gift section fx-tilt">
+
+  <div class="gift-card">
+
+    <!-- SOBRE CON MOÑO -->
+    <div class="gift-envelope" aria-hidden="true">
+
+      <svg
+        viewBox="0 0 120 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+
+        <!-- Sobre -->
+        <rect
+          x="12"
+          y="30"
+          width="96"
+          height="58"
+          rx="5"
+          fill="rgba(255,255,255,0.72)"
+          stroke="var(--accent)"
+          stroke-width="2.5"
+        />
+
+        <!-- Solapa del sobre -->
+        <path
+          d="M14 34 L60 68 L106 34"
+          fill="none"
+          stroke="var(--accent)"
+          stroke-width="2.5"
+          stroke-linejoin="round"
+        />
+
+        <!-- Parte inferior del sobre -->
+        <path
+          d="M14 84 L48 55"
+          fill="none"
+          stroke="var(--accent)"
+          stroke-width="2"
+          opacity="0.7"
+        />
+
+        <path
+          d="M106 84 L72 55"
+          fill="none"
+          stroke="var(--accent)"
+          stroke-width="2"
+          opacity="0.7"
+        />
+
+        <!-- Moño -->
+        <path
+          d="M60 30
+             C49 27 36 20 37 12
+             C38 6 44 5 50 8
+             C56 11 59 20 60 30"
+          fill="none"
+          stroke="var(--primary)"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M60 30
+             C71 27 84 20 83 12
+             C82 6 76 5 70 8
+             C64 11 61 20 60 30"
+          fill="none"
+          stroke="var(--primary)"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+
+        <!-- Centro del moño -->
+        <circle
+          cx="60"
+          cy="30"
+          r="6"
+          fill="var(--primary)"
+          stroke="var(--accent)"
+          stroke-width="2"
+        />
+
+        <!-- Corazón pequeño -->
+        <path
+          d="M60 32
+             C57 27 50 29 50 34
+             C50 39 60 44 60 44
+             C60 44 70 39 70 34
+             C70 29 63 27 60 32Z"
+          fill="var(--secondary)"
+          opacity="0.9"
+        />
+
+      </svg>
+
+    </div>
+
+
+    <!-- TÍTULO -->
+    <h2 id="regaloTitulo">
+      Tu presencia es mi mejor regalo
+    </h2>
+
+
+    <!-- DIVISOR -->
+    <div class="gift-divider" aria-hidden="true">
+      <span></span>
+      <i>♡</i>
+      <span></span>
+    </div>
+
+
+    <!-- DESCRIPCIÓN -->
+    <p id="regaloDescripcion">
+      Si deseas obsequiarme algo, será recibido
+      con mucho cariño.
+    </p>
+
+
+    <!-- LLUVIA DE SOBRES -->
+    <div class="gift-method">
+
+      <div class="gift-method-envelope" aria-hidden="true">
+
+        <svg
+          viewBox="0 0 70 58"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <!-- Sobre -->
+          <rect
+            x="6"
+            y="17"
+            width="58"
+            height="34"
+            rx="3"
+            fill="rgba(255,255,255,0.8)"
+            stroke="var(--accent)"
+            stroke-width="2"
+          />
+
+          <!-- Solapa -->
+          <path
+            d="M8 19 L35 39 L62 19"
+            fill="none"
+            stroke="var(--accent)"
+            stroke-width="2"
+          />
+
+          <!-- Moño -->
+          <path
+            d="M35 18
+               C29 16 22 12 23 7
+               C24 3 29 3 33 6
+               C35 8 35 13 35 18"
+            fill="none"
+            stroke="var(--primary)"
+            stroke-width="2.3"
+          />
+
+          <path
+            d="M35 18
+               C41 16 48 12 47 7
+               C46 3 41 3 37 6
+               C35 8 35 13 35 18"
+            fill="none"
+            stroke="var(--primary)"
+            stroke-width="2.3"
+          />
+
+          <!-- Centro -->
+          <circle
+            cx="35"
+            cy="18"
+            r="4"
+            fill="var(--primary)"
+          />
+
+        </svg>
+
+      </div>
+
+      <strong>
+        Lluvia de sobres
+      </strong>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- RSVP -->
+    <section class="rsvp section fx-zoom">
+
+      <p class="section-eyebrow">
+        Confirmación
+      </p>
+
+      <h2>
+        ¿Nos acompañarás?
+      </h2>
+
+      <p>
+        Será muy especial contar contigo
+        en esta noche.
+      </p>
+
+      <div class="rsvp-buttons">
+
+        <button
+          class="btn-rsvp"
+          data-respuesta="si"
+        >
+          Sí, asistiré
+        </button>
+
+        <button
+          class="btn-rsvp btn-rsvp-outline"
+          data-respuesta="no"
+        >
+          No podré asistir
+        </button>
+
+      </div>
+
+      <p
+        class="rsvp-message"
+        id="rsvpMensaje"
+      ></p>
+
+    </section>
+
+
+    <!-- CIERRE -->
+   <section class="closing section fx-fade-up">
+
+      <p>
+        Gracias por ser parte
+        de este momento tan especial.
+      </p>
+
+      <h2 id="closingNombre">
+        Scarlett
+      </h2>
+
+      <span>
+        Mis XV Años
+      </span>
+
+    </section>
+
+  </main>
+
+ <!-- ==========================================
+       FOOTER
+  ========================================== -->
+  <footer class="site-footer">
+    <p class="footer-hearts">✦ ⋆ ✦</p>
+    <p class="footer-text">
+      Diseñado con ♡ por
+      
+        <a href="https://deesa-dev.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-brand"
+      >DesaDev</a>
+    </p>
+    <p class="footer-copy">
+      © 2026 Todos los derechos reservados
+    </p>
+  </footer>
+ 
+
+
+
+
+  
+  <!-- CONTROL DE MÚSICA -->
+  <div class="music-player" id="musicPlayer">
+
+    <button
+    class="music-control"
+    id="musicControl"
+    aria-label="Reproducir o pausar música"
+  >
+    ♪
+    <span class="music-notes" id="musicNotes" aria-hidden="true"></span>
+  </button>
+
+  <div class="volume-panel" id="volumePanel">
+
+    <button
+      class="volume-toggle"
+      id="volumeToggle"
+      aria-label="Mostrar control de volumen"
+    >
+       ♪
+    </button>
+
+    <input
+      type="range"
+      id="volumeControl"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.25"
+      aria-label="Volumen"
+    />
+
+  </div>
+
+</div>
+
+
+  <audio
+    id="musica"
+    loop
+    preload="auto"
+  ></audio>
+
+  
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
