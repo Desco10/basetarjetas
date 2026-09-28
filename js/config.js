@@ -13,7 +13,7 @@ const EVENTO = {
  fechaEvento: "2026-10-03T19:00:00",
 
   whatsapp: {
-  numero: "573127148078"
+  numero: "573246030396"
 },
  
 padres: {
