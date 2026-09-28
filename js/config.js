@@ -15,7 +15,7 @@ const EVENTO = {
     // Imagen de fondo opcional (true / false)
     fondo: {
       habilitado: false,
-      imagen: "assets/images/apertura.jpg",
+      imagen: "assets/images/vestido-xvrosa.png",
       posicion: "center center",
       opacidad: 1,       // 0 a 1
       desenfoque: 0,     // en px

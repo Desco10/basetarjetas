@@ -539,6 +539,9 @@
 }
 
 
+
+
+
 /* ==========================================
    PANTALLA DE APERTURA
    Sello de cera + fondo con imagen opcional
@@ -606,7 +609,7 @@
      --seal-color se puede cambiar desde
      config.js (apertura.sello.color) */
 
-  --seal-color: var(--primary, #3f6f9f);
+  --seal-color: var(--primary, #be34c1);
 
   --seal-light:
     color-mix(in srgb, var(--seal-color) 72%, #fff);
