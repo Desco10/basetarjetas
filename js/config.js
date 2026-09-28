@@ -1,5 +1,5 @@
 const EVENTO = {
-  quinceanera: "Scarlett",
+  quinceanera: "Mariana",
   edad: 15,
  
     personalizacionInvitados: {
@@ -33,18 +33,18 @@ const EVENTO = {
 
   },
 
-  fecha: "03 de octubre de 2026",
+  fecha: "30 de octubre de 2026",
   hora: "7:00 PM",
   
  fechaEvento: "2026-10-03T19:00:00",
 
   whatsapp: {
-  numero: "573127148078"
+  numero: "573246030396"
 },
  
 padres: {
-  padre: "Marcos Rodriguez",
-  madre: "Esmeralda Arboleda"
+  padre: "carlos perez",
+  madre: "Maria Gonzales"
 },
  
 colores: {
