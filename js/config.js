@@ -7,13 +7,39 @@ const EVENTO = {
     archivo: "invitados.json"
   },
 
+  // ==========================================
+  // PANTALLA DE APERTURA
+  // ==========================================
+  apertura: {
+
+    // Imagen de fondo opcional (true / false)
+    fondo: {
+      habilitado: false,
+      imagen: "assets/images/apertura.jpg",
+      posicion: "center center",
+      opacidad: 1,       // 0 a 1
+      desenfoque: 0,     // en px
+      oscurecer: 0.25    // 0 a 1 · capa oscura para leer el texto
+    },
+
+    // Sello de cera para abrir la invitación
+    sello: {
+      color: null,                 // null = usa colores.principal · o un hex: "#8c1c2b"
+      emblema: "mono",             // "mono" (moño) o "inicial"
+      inicial: null,               // null = primera letra de la quinceañera
+      texto: "Abrir invitación",
+      listones: true               // true / false
+    }
+
+  },
+
   fecha: "03 de octubre de 2026",
   hora: "7:00 PM",
   
  fechaEvento: "2026-10-03T19:00:00",
 
   whatsapp: {
-  numero: "573246030396"
+  numero: "573127148078"
 },
  
 padres: {
@@ -167,5 +193,3 @@ dressCode: {
     "Este color estará reservado especialmente para la quinceañera. Gracias por ayudarnos a mantener este detalle especial de su celebración. ♡"
 },
 };
-
-

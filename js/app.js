@@ -444,6 +444,122 @@ if (EVENTO.cristal) {
 
 
   // ------------------------------------------
+  // PANTALLA DE APERTURA (fondo + sello)
+  //
+  // Todo es opcional: si EVENTO.apertura no
+  // existe, se usan los valores por defecto.
+  // ------------------------------------------
+
+  function configurarApertura() {
+
+    const cfg = EVENTO.apertura || {};
+    const fondo = cfg.fondo || {};
+    const sello = cfg.sello || {};
+
+
+    // Texto del sello
+
+    const etiqueta = document.getElementById("sealLabel");
+
+    if (sello.texto) {
+
+      if (etiqueta) etiqueta.textContent = sello.texto;
+
+      btnAbrir.setAttribute("aria-label", sello.texto);
+
+    }
+
+
+    // Color de la cera (null = color principal)
+
+    if (sello.color) {
+
+      btnAbrir.style.setProperty("--seal-color", sello.color);
+
+    }
+
+
+    // Emblema: moño o inicial
+
+    btnAbrir.dataset.emblema =
+      sello.emblema === "inicial" ? "inicial" : "mono";
+
+    const letra = String(
+      sello.inicial || EVENTO.quinceanera || ""
+    ).trim().charAt(0).toUpperCase();
+
+    ["sealInitial", "sealInitialShadow"].forEach((id) => {
+
+      const el = document.getElementById(id);
+
+      if (el && letra) el.textContent = letra;
+
+    });
+
+
+    // Listones
+
+    if (sello.listones === false) {
+
+      btnAbrir.classList.add("sin-listones");
+
+    }
+
+
+    // Imagen de fondo (solo aparece si carga bien)
+
+    const capaFondo = document.getElementById("introBg");
+
+    if (
+      fondo.habilitado === true &&
+      fondo.imagen &&
+      capaFondo
+    ) {
+
+      const prueba = new Image();
+
+      prueba.onload = () => {
+
+        capaFondo.style.backgroundImage =
+          `url("${fondo.imagen}")`;
+
+        capaFondo.style.backgroundPosition =
+          fondo.posicion || "center center";
+
+        capaFondo.style.filter =
+          `blur(${fondo.desenfoque ?? 0}px)`;
+
+        capaFondo.style.opacity =
+          fondo.opacidad ?? 1;
+
+        intro.style.setProperty(
+          "--intro-scrim",
+          fondo.oscurecer ?? 0.25
+        );
+
+        intro.classList.add("intro--con-fondo");
+
+      };
+
+      prueba.onerror = () => {
+
+        console.warn(
+          "No se pudo cargar la imagen de apertura:",
+          fondo.imagen
+        );
+
+      };
+
+      prueba.src = fondo.imagen;
+
+    }
+
+  }
+
+  configurarApertura();
+
+
+  // ------------------------------------------
   // FOTO PRINCIPAL
   // ------------------------------------------
 
@@ -495,6 +611,8 @@ volumeControl.addEventListener("input", () => {
   // ------------------------------------------
 
   btnAbrir.addEventListener("click", async () => {
+
+    btnAbrir.classList.add("is-opening");
 
     intro.classList.add("intro-open");
 
