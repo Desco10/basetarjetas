@@ -1,0 +1,539 @@
+/* ==========================================
+   XV EXPERIENCE
+   PERSONALIZACIÓN DE INVITADOS (PREMIUM)
+
+   Archivo complementario a style.css.
+   Solo estiliza elementos nuevos; no modifica
+   ningún estilo existente. Si prefieres un
+   único archivo, puedes pegar todo este
+   contenido al final de style.css.
+
+   Usa las mismas variables del sistema:
+   --primary, --accent, --font-title,
+   --font-body, --glass-*
+========================================== */
+
+
+/* ==========================================
+   SEGURIDAD: respetar el atributo [hidden]
+========================================== */
+
+.rsvp-guest-badge[hidden],
+.rsvp-guest-note[hidden],
+.rsvp-companions[hidden] {
+  display: none !important;
+}
+
+
+/* ==========================================
+   TARJETA DE INVITADO (pantalla de apertura)
+   Generada por invitados.js
+========================================== */
+
+.guest-personalization {
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  width: min(100%, 340px);
+
+  margin: 0 auto 34px;
+
+  padding: 22px 24px 20px;
+
+  text-align: center;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--accent) 55%,
+      rgba(255, 255, 255, 0.70)
+    );
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.58);
+
+  backdrop-filter:
+    blur(14px)
+    saturate(130%);
+
+  -webkit-backdrop-filter:
+    blur(14px)
+    saturate(130%);
+
+  box-shadow:
+    0 14px 38px rgba(20, 35, 55, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+  animation:
+    guestCardIn 0.9s ease 0.25s both;
+}
+
+
+/* Ornamento superior */
+
+.guest-personalization::before {
+
+  content: "✦";
+
+  color: var(--accent);
+
+  font-size: 0.8rem;
+
+  line-height: 1;
+
+  margin-bottom: 4px;
+}
+
+
+.guest-personalization-label {
+
+  color: var(--primary);
+
+  font-family: var(--font-body);
+
+  font-size: 0.68rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+}
+
+
+.guest-personalization-name {
+
+  color: var(--text);
+
+  font-family: var(--font-title);
+
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+
+  font-weight: 600;
+
+  font-style: italic;
+
+  line-height: 1.12;
+
+  text-wrap: balance;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* Línea decorativa entre nombre y datos */
+
+.guest-personalization-name::after {
+
+  content: "";
+
+  display: block;
+
+  width: 54px;
+
+  height: 1px;
+
+  margin: 12px auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--accent),
+      transparent
+    );
+}
+
+
+.guest-personalization-people {
+
+  display: inline-block;
+
+  margin-top: 8px;
+
+  padding: 6px 16px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--primary) 35%,
+      transparent
+    );
+
+  border-radius: 50px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--primary) 10%,
+      rgba(255, 255, 255, 0.55)
+    );
+
+  color: var(--primary);
+
+  font-family: var(--font-body);
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+
+@keyframes guestCardIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ==========================================
+   NOTA PERSONALIZADA EN LA SECCIÓN RSVP
+   (mismo selector que usa style.css para los
+   párrafos de .rsvp, para poder sobrescribirlo)
+========================================== */
+
+.rsvp > p.rsvp-guest-note:not(.section-eyebrow):not(.rsvp-message) {
+
+  display: block;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin: -12px auto 32px;
+
+  padding: 9px 22px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--accent) 50%,
+      rgba(255, 255, 255, 0.50)
+    );
+
+  border-radius: 50px;
+
+  background:
+    rgba(255, 255, 255, 0.45);
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+
+  color: var(--primary);
+
+  font-family: var(--font-title);
+
+  font-size: 1.1rem;
+
+  font-style: italic;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  box-shadow:
+    0 8px 22px rgba(30, 45, 65, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.80);
+}
+
+
+/* ==========================================
+   MODAL RSVP — INSIGNIA DE INVITACIÓN
+========================================== */
+
+.rsvp-guest-badge {
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin: -6px auto 20px;
+
+  padding: 6px 16px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--accent) 50%,
+      transparent
+    );
+
+  border-radius: 50px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--accent) 10%,
+      rgba(255, 255, 255, 0.60)
+    );
+
+  color: var(--text);
+
+  font-size: 0.76rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  text-align: center;
+}
+
+
+/* ==========================================
+   MODAL RSVP — CAMPOS BLOQUEADOS
+   (nombre y apellido vienen del invitado)
+========================================== */
+
+.rsvp-field input[readonly] {
+
+  border-style: dashed;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--primary) 7%,
+      rgba(255, 255, 255, 0.72)
+    );
+
+  color: var(--text);
+
+  font-weight: 500;
+
+  cursor: default;
+}
+
+
+.rsvp-field input[readonly]:focus {
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--accent) 35%,
+      transparent
+    );
+
+  box-shadow: none;
+}
+
+
+/* ==========================================
+   MODAL RSVP — SELECTOR DE ACOMPAÑANTES
+========================================== */
+
+.rsvp-companions {
+
+  padding: 14px 14px 12px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--accent) 30%,
+      transparent
+    );
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.42);
+
+  text-align: center;
+}
+
+
+.rsvp-companions > label {
+
+  margin-bottom: 10px;
+}
+
+
+.rsvp-stepper {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+}
+
+
+.rsvp-stepper-btn {
+
+  width: 46px;
+
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 0 3px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--primary) 60%,
+      transparent
+    );
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.90);
+
+  color: var(--primary);
+
+  font-family: var(--font-title);
+
+  font-size: 1.7rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  box-shadow:
+    0 6px 16px rgba(30, 45, 65, 0.10);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.rsvp-stepper-btn:hover:not(:disabled) {
+
+  transform: translateY(-2px);
+
+  background: var(--primary);
+
+  color: #fff;
+}
+
+
+.rsvp-stepper-btn:active:not(:disabled) {
+
+  transform: scale(0.94);
+}
+
+
+.rsvp-stepper-btn:disabled {
+
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+
+.rsvp-stepper-btn:focus-visible {
+
+  outline: 2px solid var(--primary);
+
+  outline-offset: 3px;
+}
+
+
+.rsvp-stepper-value {
+
+  min-width: 3.2rem;
+
+  color: var(--primary);
+
+  font-family: var(--font-title);
+
+  font-size: 2.4rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  text-align: center;
+}
+
+
+.rsvp-companions-hint {
+
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--text);
+
+  font-size: 0.8rem;
+
+  line-height: 1.5;
+
+  opacity: 0.7;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .guest-personalization {
+
+    margin-bottom: 28px;
+
+    padding: 18px 18px 16px;
+  }
+
+  .rsvp > p.rsvp-guest-note:not(.section-eyebrow):not(.rsvp-message) {
+
+    font-size: 1rem;
+
+    padding: 8px 18px;
+  }
+
+}
+
+
+/* ==========================================
+   REDUCIR ANIMACIONES — ACCESIBILIDAD
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .guest-personalization {
+
+    animation: none;
+  }
+
+  .rsvp-stepper-btn {
+
+    transition: none;
+  }
+
+}

@@ -73,8 +73,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">    
 
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/invitados.css" />
 </head>
 
+
+<body>
 
 <!-- ==========================================
      MODAL CONFIRMACIÓN WHATSAPP
@@ -116,6 +119,8 @@
       Por favor, indícanos tu nombre y apellido.
     </p>
 
+    <p class="rsvp-guest-badge" id="rsvpGuestBadge" hidden></p>
+
     <form id="rsvpForm">
 
       <div class="rsvp-field">
@@ -154,6 +159,58 @@
 
       </div>
 
+      <!-- ACOMPAÑANTES (solo invitados con personalización) -->
+      <div
+        class="rsvp-field rsvp-companions"
+        id="rsvpCompanions"
+        hidden
+      >
+
+        <label id="rsvpCompanionsLabel">
+          Acompañantes
+        </label>
+
+        <div
+          class="rsvp-stepper"
+          role="group"
+          aria-labelledby="rsvpCompanionsLabel"
+        >
+
+          <button
+            type="button"
+            class="rsvp-stepper-btn"
+            id="rsvpMenos"
+            aria-label="Quitar un acompañante"
+          >
+            −
+          </button>
+
+          <output
+            class="rsvp-stepper-value"
+            id="rsvpAcompanantesValor"
+            aria-live="polite"
+          >
+            0
+          </output>
+
+          <button
+            type="button"
+            class="rsvp-stepper-btn"
+            id="rsvpMas"
+            aria-label="Agregar un acompañante"
+          >
+            +
+          </button>
+
+        </div>
+
+        <small
+          class="rsvp-companions-hint"
+          id="rsvpCompanionsHint"
+        ></small>
+
+      </div>
+
       <button
         type="submit"
         class="btn-whatsapp"
@@ -168,10 +225,6 @@
 
 </div>
 
-
-
-
-<body>
 
     <div
   class="petals-container"
@@ -871,6 +924,8 @@
         Será muy especial contar contigo
         en esta noche.
       </p>
+
+      <p class="rsvp-guest-note" id="rsvpGuestNote" hidden></p>
 
       <div class="rsvp-buttons">
 

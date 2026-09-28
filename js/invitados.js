@@ -133,6 +133,18 @@
       mostrarInvitado(invitado);
 
 
+      // --------------------------------------
+      // AVISAR A LA APP (RSVP, etc.)
+      // --------------------------------------
+
+      document.dispatchEvent(
+        new CustomEvent(
+          "invitado:cargado",
+          { detail: invitado }
+        )
+      );
+
+
     } catch (error) {
 
       console.error(

@@ -935,6 +935,297 @@ let respuestaRSVP = null;
 
 
 // ------------------------------------------
+// INVITADO PERSONALIZADO (PREMIUM)
+//
+// invitados.js identifica al invitado según
+// la URL y lo deja en window.INVITADO_ACTUAL.
+//
+// Si la personalización está desactivada
+// (tarjeta sencilla) o el enlace no
+// corresponde a ningún invitado, estas
+// funciones devuelven null / 0 y el RSVP
+// funciona exactamente como siempre.
+// ------------------------------------------
+
+let acompanantesSeleccionados = 0;
+let maxAcompanantes = 0;
+
+
+function obtenerInvitado() {
+
+  if (
+    !EVENTO.personalizacionInvitados ||
+    EVENTO.personalizacionInvitados.habilitada !== true
+  ) {
+    return null;
+  }
+
+  const invitado = window.INVITADO_ACTUAL;
+
+  if (
+    !invitado ||
+    !invitado.nombre ||
+    !invitado.apellido
+  ) {
+    return null;
+  }
+
+  return invitado;
+
+}
+
+
+function obtenerMaxAcompanantes(invitado) {
+
+  const max = Math.floor(
+    Number(invitado && invitado.acompanantes)
+  );
+
+  return Number.isFinite(max) && max > 0
+    ? max
+    : 0;
+
+}
+
+
+function textoAcompanantes(cantidad) {
+
+  return cantidad === 1
+    ? "1 acompañante"
+    : `${cantidad} acompañantes`;
+
+}
+
+
+// Nota visible en la sección "¿Nos acompañarás?"
+
+function mostrarNotaInvitado() {
+
+  const nota =
+    document.getElementById("rsvpGuestNote");
+
+  if (!nota) return;
+
+  const invitado = obtenerInvitado();
+
+  if (!invitado) {
+
+    nota.hidden = true;
+
+    return;
+
+  }
+
+  const max = obtenerMaxAcompanantes(invitado);
+
+  nota.textContent = max > 0
+    ? `Hemos reservado ${max + 1} lugares para ti y tus acompañantes`
+    : "Hemos reservado un lugar especial para ti";
+
+  nota.hidden = false;
+
+}
+
+
+// El JSON se carga de forma asíncrona:
+// escuchamos el aviso de invitados.js
+// y también revisamos si ya estaba listo.
+
+document.addEventListener(
+  "invitado:cargado",
+  mostrarNotaInvitado
+);
+
+mostrarNotaInvitado();
+
+
+// ------------------------------------------
+// SELECTOR DE ACOMPAÑANTES
+// ------------------------------------------
+
+function actualizarSelectorAcompanantes() {
+
+  const valor =
+    document.getElementById("rsvpAcompanantesValor");
+
+  const menos =
+    document.getElementById("rsvpMenos");
+
+  const mas =
+    document.getElementById("rsvpMas");
+
+  if (valor) {
+    valor.textContent = acompanantesSeleccionados;
+  }
+
+  if (menos) {
+    menos.disabled = acompanantesSeleccionados <= 0;
+  }
+
+  if (mas) {
+    mas.disabled =
+      acompanantesSeleccionados >= maxAcompanantes;
+  }
+
+}
+
+
+const btnMenosAcompanante =
+  document.getElementById("rsvpMenos");
+
+const btnMasAcompanante =
+  document.getElementById("rsvpMas");
+
+
+if (btnMenosAcompanante) {
+
+  btnMenosAcompanante.addEventListener("click", () => {
+
+    if (acompanantesSeleccionados > 0) {
+
+      acompanantesSeleccionados--;
+
+      actualizarSelectorAcompanantes();
+
+    }
+
+  });
+
+}
+
+
+if (btnMasAcompanante) {
+
+  btnMasAcompanante.addEventListener("click", () => {
+
+    if (acompanantesSeleccionados < maxAcompanantes) {
+
+      acompanantesSeleccionados++;
+
+      actualizarSelectorAcompanantes();
+
+    }
+
+  });
+
+}
+
+
+// ------------------------------------------
+// PREPARAR EL MODAL SEGÚN EL INVITADO
+// ------------------------------------------
+
+function prepararModalInvitado() {
+
+  const invitado = obtenerInvitado();
+
+  const inputNombre =
+    document.getElementById("rsvpNombre");
+
+  const inputApellido =
+    document.getElementById("rsvpApellido");
+
+  const insignia =
+    document.getElementById("rsvpGuestBadge");
+
+  const bloque =
+    document.getElementById("rsvpCompanions");
+
+  const pista =
+    document.getElementById("rsvpCompanionsHint");
+
+  const texto =
+    document.getElementById("rsvpModalText");
+
+  const asistira = respuestaRSVP === "si";
+
+
+  // ----------------------------------------
+  // SIN INVITADO → formulario normal
+  // ----------------------------------------
+
+  if (!invitado) {
+
+    if (inputNombre) inputNombre.readOnly = false;
+    if (inputApellido) inputApellido.readOnly = false;
+
+    if (insignia) insignia.hidden = true;
+    if (bloque) bloque.hidden = true;
+
+    maxAcompanantes = 0;
+    acompanantesSeleccionados = 0;
+
+    return;
+
+  }
+
+
+  // ----------------------------------------
+  // CON INVITADO → datos precargados
+  // ----------------------------------------
+
+  if (inputNombre) {
+    inputNombre.value = invitado.nombre;
+    inputNombre.readOnly = true;
+  }
+
+  if (inputApellido) {
+    inputApellido.value = invitado.apellido;
+    inputApellido.readOnly = true;
+  }
+
+  maxAcompanantes = obtenerMaxAcompanantes(invitado);
+
+  if (insignia) {
+
+    insignia.textContent = maxAcompanantes > 0
+      ? `✦ Invitación para ${maxAcompanantes + 1} personas`
+      : "✦ Invitación individual";
+
+    insignia.hidden = false;
+
+  }
+
+  if (texto) {
+
+    texto.textContent = asistira
+      ? "Revisa tus datos y confirma tu asistencia."
+      : "Revisa tus datos y registra tu respuesta.";
+
+  }
+
+
+  // Acompañantes: solo si asistirá y tiene cupo
+
+  if (bloque) {
+
+    if (asistira && maxAcompanantes > 0) {
+
+      acompanantesSeleccionados = maxAcompanantes;
+
+      if (pista) {
+        pista.textContent =
+          `Tu invitación incluye hasta ${textoAcompanantes(maxAcompanantes)}.`;
+      }
+
+      actualizarSelectorAcompanantes();
+
+      bloque.hidden = false;
+
+    } else {
+
+      acompanantesSeleccionados = 0;
+
+      bloque.hidden = true;
+
+    }
+
+  }
+
+}
+
+
+// ------------------------------------------
 // ABRIR FORMULARIO DE RSVP
 // ------------------------------------------
 
@@ -986,6 +1277,8 @@ function abrirModalRSVP() {
 
   }
 
+  prepararModalInvitado();
+
   modal.classList.add("active");
 
   modal.setAttribute(
@@ -998,11 +1291,14 @@ function abrirModalRSVP() {
 
   setTimeout(() => {
 
-    const nombre =
-      document.getElementById("rsvpNombre");
+    // Con invitado identificado los datos ya
+    // vienen completos: enfocamos el botón.
+    const objetivo = obtenerInvitado()
+      ? document.getElementById("btnEnviarWhatsapp")
+      : document.getElementById("rsvpNombre");
 
-    if (nombre) {
-      nombre.focus();
+    if (objetivo) {
+      objetivo.focus();
     }
 
   }, 250);
@@ -1053,6 +1349,8 @@ function cerrarModalRSVP() {
 
   respuestaRSVP = null;
 
+  acompanantesSeleccionados = 0;
+
 }
 
 
@@ -1098,17 +1396,23 @@ if (rsvpForm) {
     event.preventDefault();
 
 
-    const nombre =
-      document
-        .getElementById("rsvpNombre")
-        .value
-        .trim();
+    // Con invitado identificado usamos siempre
+    // los datos del archivo JSON (no editables).
+    const invitado = obtenerInvitado();
 
-    const apellido =
-      document
-        .getElementById("rsvpApellido")
-        .value
-        .trim();
+    const nombre = invitado
+      ? String(invitado.nombre).trim()
+      : document
+          .getElementById("rsvpNombre")
+          .value
+          .trim();
+
+    const apellido = invitado
+      ? String(invitado.apellido).trim()
+      : document
+          .getElementById("rsvpApellido")
+          .value
+          .trim();
 
 
     if (!nombre || !apellido) {
@@ -1120,6 +1424,28 @@ if (rsvpForm) {
 
     const nombreCompleto =
       `${nombre} ${apellido}`;
+
+
+    // --------------------------------------
+    // ACOMPAÑANTES (solo invitados premium)
+    // --------------------------------------
+
+    const cupo = obtenerMaxAcompanantes(invitado);
+
+    const acompanantes =
+      invitado && respuestaRSVP === "si"
+        ? Math.min(acompanantesSeleccionados, cupo)
+        : 0;
+
+    let lineaAsistencia = "";
+
+    if (invitado && respuestaRSVP === "si" && cupo > 0) {
+
+      lineaAsistencia = acompanantes === 0
+        ? "Asistiré sin acompañantes."
+        : `Asistiremos ${acompanantes + 1} personas en total (yo y ${textoAcompanantes(acompanantes)}).`;
+
+    }
 
 
     let mensaje;
@@ -1139,7 +1465,7 @@ Soy ${nombreCompleto}.
 Muchas gracias por invitarme a tus XV años. 💕
 
 Confirmo con mucha alegría que sí asistiré a tu celebración.
-
+${lineaAsistencia ? `\n${lineaAsistencia}\n` : ""}
 Será un placer acompañarte en este momento tan especial. ✨
 
 ¡Nos vemos! 💐`;
