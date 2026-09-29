@@ -75,10 +75,26 @@
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/invitados.css" />
 
+<!-- Scripts: se descargan desde el inicio (defer) para que
+     la apertura esté lista cuanto antes. El orden se mantiene. -->
+<script defer fetchpriority="high" src="js/config.js"></script>
+<script defer fetchpriority="high" src="js/invitados.js"></script>
+<script defer fetchpriority="high" src="js/app.js"></script>
+
+<!-- Si el navegador tiene JavaScript desactivado, mostrar la apertura -->
+<noscript>
+  <style>
+    .intro.intro--cargando { opacity: 1 !important; visibility: visible !important; }
+    .page-loader { display: none !important; }
+  </style>
+</noscript>
 </head>
 
 
 <body>
+
+<!-- Cargador mínimo mientras se prepara la apertura -->
+<div class="page-loader" id="pageLoader" aria-hidden="true"><span>✦</span></div>
 
 <!-- ==========================================
      MODAL CONFIRMACIÓN WHATSAPP
@@ -242,7 +258,7 @@
   <!-- =========================
        PANTALLA DE APERTURA
   ========================== -->
-  <section class="intro" id="intro">
+  <section class="intro intro--cargando" id="intro">
 
     <!-- Fondo opcional (se activa desde config.js → apertura.fondo) -->
     <div class="intro-bg" id="introBg" aria-hidden="true"></div>
@@ -473,7 +489,7 @@
 
   <!-- VESTIDO ANIMADO -->
   <div class="dress-decoration" aria-hidden="true">
-    <img
+    <img loading="lazy" decoding="async"
       src="assets/images/vestido-xv.png"
       alt=""
     />
@@ -560,7 +576,7 @@
      <div class="carousel-track">
 
       <div class="carousel-slide">
-        <img
+        <img loading="lazy" decoding="async"
           src="assets/images/adulto.jpeg"
           alt="Fotografía XV 1"
           style="object-position: center 15%;"
@@ -568,7 +584,7 @@
       </div>
 
       <div class="carousel-slide">
-        <img
+        <img loading="lazy" decoding="async"
           src="assets/images/portada2.jpeg"
           alt="Fotografía XV 2"
 
@@ -577,7 +593,7 @@
       </div>
 
       <div class="carousel-slide">
-        <img
+        <img loading="lazy" decoding="async"
           src="assets/images/portada3.jpeg"
           alt="Fotografía XV 3"
           style="object-position: center 20%;"
@@ -590,7 +606,7 @@
  
 
   <div class="carousel-slide">
-        <img
+        <img loading="lazy" decoding="async"
           src="assets/images/portada4.jpeg"
           alt="Fotografía XV 4"
         />
@@ -643,7 +659,7 @@
       
 
       <div class="carousel-slide">
-        <img
+        <img loading="lazy" decoding="async"
           src="assets/images/nina1.jpg"
           alt="Recuerdo de infancia 2"
          style="object-position: center 15%;"
@@ -651,7 +667,7 @@
       </div>
 
       <div class="carousel-slide">
-        <img
+        <img loading="lazy" decoding="async"
           src="assets/images/portada1.jpeg"
           alt="Recuerdo de infancia 3"
           
@@ -660,7 +676,7 @@
   
 
  <div class="carousel-slide">
-        <img
+        <img loading="lazy" decoding="async"
           src="assets/images/nina3.jpg"
           alt="Recuerdo de infancia 4"
           style="object-position: center 15%;"
@@ -1186,9 +1202,6 @@
 
   
 
-  <script src="js/config.js"></script>
-<script src="js/invitados.js"></script>
-<script src="js/app.js"></script>
 
 </body>
 </html>

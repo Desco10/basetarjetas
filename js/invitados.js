@@ -12,6 +12,21 @@
 
   window.INVITADO_ACTUAL = null;
 
+  // Indica a app.js cuándo terminó la carga del invitado
+  // (exista o no, con o sin errores), para revelar la
+  // pantalla de apertura ya completa.
+  window.INVITADOS_LISTOS = false;
+
+  function terminarCarga() {
+
+    window.INVITADOS_LISTOS = true;
+
+    document.dispatchEvent(
+      new Event("invitados:resuelto")
+    );
+
+  }
+
 
   // ------------------------------------------
   // COMPROBAR CONFIGURACIÓN
@@ -22,6 +37,7 @@
     !EVENTO.personalizacionInvitados ||
     EVENTO.personalizacionInvitados.habilitada !== true
   ) {
+    window.INVITADOS_LISTOS = true;
     return;
   }
 
@@ -59,7 +75,7 @@
   // CARGAR INVITADOS
   // ------------------------------------------
 
-  async function cargarInvitado() {
+  async function cargarInvitadoInterno() {
 
     const idInvitado =
       obtenerIdInvitado();
@@ -151,6 +167,21 @@
         "Error en personalización de invitados:",
         error
       );
+
+    }
+
+  }
+
+
+  async function cargarInvitado() {
+
+    try {
+
+      await cargarInvitadoInterno();
+
+    } finally {
+
+      terminarCarga();
 
     }
 

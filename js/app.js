@@ -510,11 +510,15 @@ if (EVENTO.cristal) {
 
     const capaFondo = document.getElementById("introBg");
 
+    let listoFondo = Promise.resolve();
+
     if (
       fondo.habilitado === true &&
       fondo.imagen &&
       capaFondo
     ) {
+
+      listoFondo = new Promise((resolver) => {
 
       const prueba = new Image();
 
@@ -539,6 +543,8 @@ if (EVENTO.cristal) {
 
         intro.classList.add("intro--con-fondo");
 
+        resolver();
+
       };
 
       prueba.onerror = () => {
@@ -548,15 +554,115 @@ if (EVENTO.cristal) {
           fondo.imagen
         );
 
+        resolver();
+
       };
 
       prueba.src = fondo.imagen;
 
+      });
+
     }
+
+    return listoFondo;
 
   }
 
-  configurarApertura();
+  const listoApertura = configurarApertura();
+
+
+  // ------------------------------------------
+  // REVELAR LA APERTURA CUANDO TODO ESTÁ LISTO
+  //
+  // La pantalla de apertura permanece oculta
+  // (clase intro--cargando) hasta que estén
+  // aplicados los colores, el fondo, las
+  // tipografías de la portada y el invitado
+  // personalizado. Así aparece completa de
+  // una sola vez, sin destellos ni cambios
+  // de color a la vista.
+  //
+  // Si algo tarda demasiado, se muestra igual.
+  // ------------------------------------------
+
+  function esperarInvitados() {
+
+    return new Promise((resolver) => {
+
+      if (window.INVITADOS_LISTOS === true) {
+
+        resolver();
+
+        return;
+
+      }
+
+      document.addEventListener(
+        "invitados:resuelto",
+        () => resolver(),
+        { once: true }
+      );
+
+    });
+
+  }
+
+
+  // Espera solo las tipografías que usa la
+  // apertura (no toda la página).
+  function esperarTipografias() {
+
+    if (!document.fonts || !document.fonts.load) {
+      return Promise.resolve();
+    }
+
+    return Promise.all([
+      document.fonts.load('400 1em "Cormorant Garamond"'),
+      document.fonts.load('italic 400 1em "Cormorant Garamond"'),
+      document.fonts.load('italic 600 1em "Cormorant Garamond"'),
+      document.fonts.load('400 1em "Jost"'),
+      document.fonts.load('600 1em "Jost"')
+    ]).catch(() => {});
+
+  }
+
+
+  function revelarIntro() {
+
+    if (!intro.classList.contains("intro--cargando")) {
+      return;
+    }
+
+    intro.classList.remove("intro--cargando");
+
+    intro.classList.add("intro--lista");
+
+    setTimeout(() => {
+
+      intro.classList.remove("intro--lista");
+
+      const cargador =
+        document.getElementById("pageLoader");
+
+      if (cargador) cargador.remove();
+
+    }, 800);
+
+  }
+
+
+  Promise.race([
+
+    Promise.all([
+      listoApertura,
+      esperarInvitados(),
+      esperarTipografias()
+    ]),
+
+    // Tiempo máximo de espera
+    new Promise((resolver) => setTimeout(resolver, 3500))
+
+  ]).then(revelarIntro, revelarIntro);
 
 
   // ------------------------------------------

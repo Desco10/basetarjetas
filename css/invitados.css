@@ -1079,3 +1079,123 @@
     transition: none;
   }
 }
+
+
+
+
+/* ==========================================
+   CARGA DE LA APERTURA
+   La apertura permanece oculta hasta que
+   app.js aplica colores, fondo e invitado.
+   Así aparece completa de una sola vez.
+========================================== */
+
+.intro.intro--cargando {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: none;
+
+  /* Red de seguridad: si por algún motivo el
+     JavaScript no responde, se muestra igual */
+  animation: introRescate 0.5s ease 6s forwards;
+}
+
+
+@keyframes introRescate {
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+/* Aparición suave al terminar de cargar */
+
+.intro.intro--lista {
+
+  transition: none;
+
+  animation: introReveal 0.6s ease backwards;
+}
+
+
+@keyframes introReveal {
+
+  from { opacity: 0; }
+}
+
+
+/* Cargador mínimo: solo aparece si la carga tarda */
+
+.page-loader {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  animation:
+    loaderIn 0.4s ease 0.35s forwards,
+    loaderRescate 0.3s ease 6s forwards;
+}
+
+
+.page-loader span {
+
+  color: #d6b45f;
+
+  font-size: 1.6rem;
+
+  animation: loaderPulse 1.4s ease-in-out infinite;
+}
+
+
+@keyframes loaderIn {
+
+  to { opacity: 1; }
+}
+
+
+@keyframes loaderRescate {
+
+  to { opacity: 0; }
+}
+
+
+@keyframes loaderPulse {
+
+  0%, 100% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.15) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .intro.intro--lista,
+  .page-loader span {
+
+    animation: none;
+  }
+}
