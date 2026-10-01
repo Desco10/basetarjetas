@@ -1,5 +1,5 @@
 const EVENTO = {
-  quinceanera: "Mariana",
+  quinceanera: "Valentina",
   edad: 15,
  
     personalizacionInvitados: {
@@ -15,7 +15,7 @@ const EVENTO = {
     // Imagen de fondo opcional (true / false)
     fondo: {
       habilitado: true,
-      imagen: "assets/images/vestido-xvrosa.png",
+      imagen: "assets/images/aperturavalen.jpeg",
       posicion: "center center",
       opacidad: 1,       // 0 a 1
       desenfoque: 0,     // en px
@@ -33,27 +33,27 @@ const EVENTO = {
 
   },
 
-  fecha: "30 de octubre de 2026",
-  hora: "7:00 PM",
-  
- fechaEvento: "2026-10-03T19:00:00",
+  fecha: "24 de octubre de 2026",
+hora: "7:00 PM",
+fechaEvento: "2026-10-24T19:00:00",
 
   whatsapp: {
-  numero: "573246030396"
+  numero: "573146443417"
 },
  
 padres: {
-  padre: "carlos perez",
-  madre: "Maria Gonzales"
+  padre: "Andres Ordoñez",
+  madre: "Yenni Urrea"
 },
  
 colores: {
-  principal: "#3F6F9F",
-  secundario: "#6FA8D7",
-  acento: "#D6B45F",
+  principal: "#5B9BCB",
+  secundario: "#BFDDF2",
+  acento: "#C7CCD1",
   fondo: "transparent",
-  texto: "#010a0f"
+  texto: "#17232D"
 },
+
 
 fondo: {
   habilitado: true,
@@ -95,16 +95,16 @@ cristal: {
   portada: {
     titulo: "Mis XV Años",
     subtitulo: "Una noche para recordar",
-    imagen: "assets/images/portada.jpeg"
+    imagen: "assets/images/portvalen.jpeg"
   },
 
   ubicacion: {
-    nombre: "Salón Quinta Real",
+    nombre: "Salón Milan",
     direccion: "Dirección del evento",
-    maps: "https://maps.app.goo.gl/9VfBoxhSjmJo65bn7"
+    maps: "https://share.google/cVRSlkT5BKEvAPO14"
   },
 
-  vestimenta: "Elegante",
+  vestimenta: "Formal",
 
   regalo: {
     titulo: "Tu presencia es mi mejor regalo",
@@ -112,7 +112,7 @@ cristal: {
   },
 
   musica: {
-  archivo: "assets/music/15PRIMAVERASSI.mp3",
+  archivo: "assets/music/instrumental.mpeg",
   autoplayAlAbrir: true,
   volumenInicial: 0.25
 },
@@ -125,7 +125,7 @@ efectos: {
   mariposas: true,   
 
   intensidadPetalos: 18,
-  intensidadMariposas: 6  
+  intensidadMariposas: 10  
 },
 
 itinerarioHabilitado: true,
