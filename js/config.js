@@ -15,7 +15,7 @@ const EVENTO = {
     // Imagen de fondo opcional (true / false)
     fondo: {
       habilitado: true,
-      imagen: "assets/images/aperturavalen.jpeg",
+      imagen: "assets/images/VALENTINA1P.jpeg",
       posicion: "center center",
       opacidad: 1,       // 0 a 1
       desenfoque: 0,     // en px
@@ -57,7 +57,7 @@ colores: {
 
 fondo: {
   habilitado: true,
-  imagen: "/assets/images/portsenci.png",
+  imagen: "/assets/images/fondovalen.jpeg",
 
   // Intensidad de la imagen de fondo
   opacidad: 0.85,
