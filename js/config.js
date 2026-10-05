@@ -38,7 +38,7 @@ hora: "7:00 PM",
 fechaEvento: "2026-10-24T19:00:00",
 
   whatsapp: {
-  numero: "573146443417"
+  numero: "573246030396"
 },
  
 padres: {
@@ -57,7 +57,7 @@ colores: {
 
 fondo: {
   habilitado: true,
-  imagen: "/assets/images/fondo.png",
+  imagen: "/assets/images/portsenci.png",
 
   // Intensidad de la imagen de fondo
   opacidad: 0.85,
@@ -124,11 +124,11 @@ efectos: {
   vestido: true,
   mariposas: true,   
 
-  intensidadPetalos: 18,
-  intensidadMariposas: 10  
+  intensidadPetalos: 10,
+  intensidadMariposas: 8  
 },
 
-itinerarioHabilitado: true,
+itinerarioHabilitado: false,
 
 itinerario: [
   {
