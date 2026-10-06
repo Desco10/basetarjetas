@@ -1199,3 +1199,63 @@
     animation: none;
   }
 }
+
+
+
+/* ==========================================
+   AJUSTES: ORDEN + TARJETA DEBAJO DEL SOBRE
+========================================== */
+
+/* "ABRIR INVITACIÓN" arriba del sobre */
+.btn-seal .seal-label {
+  order: -1;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+/* Tarjeta debajo del sobre, más compacta
+   para que no tape las caras del fondo */
+.guest-personalization {
+  margin: 26px auto 0;
+  padding: 16px 20px 16px;
+  gap: 4px;
+}
+
+.guest-personalization-name {
+  font-size: clamp(1.6rem, 6.5vw, 2.1rem);
+}
+
+/* Texto adicional (y Familia, y Esposo, etc.) */
+.guest-personalization-extra {
+  margin-top: 6px;
+  color: var(--text);
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* "Invitación para 3 personas" más grande y legible */
+.guest-personalization-people {
+  margin-top: 10px;
+  padding: 9px 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--primary) 65%, #000);
+  background: rgba(255, 255, 255, 0.78);
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+}
+
+/* Celulares bajos */
+@media (max-height: 720px) {
+  .guest-personalization {
+    margin-top: 16px;
+    padding: 12px 16px;
+  }
+
+  .btn-seal .seal-label {
+    margin-bottom: 8px;
+  }
+}

@@ -192,7 +192,7 @@
   // MOSTRAR INVITADO
   // ------------------------------------------
 
-  function mostrarInvitado(invitado) {
+   function mostrarInvitado(invitado) {
 
     const introContent =
       document.querySelector(".intro-content");
@@ -209,16 +209,25 @@
       "guest-personalization";
 
 
+    // Evita que un texto raro del JSON rompa el HTML
+    function limpiar(texto) {
+      const div = document.createElement("div");
+      div.textContent = String(texto ?? "");
+      return div.innerHTML;
+    }
+
+
     const nombreCompleto =
-      `${invitado.nombre} ${invitado.apellido}`;
+      limpiar(`${invitado.nombre} ${invitado.apellido}`);
+
+
+    const textoAdicional =
+      String(invitado.textoAdicional ?? "").trim();
 
 
     let textoPersonas;
 
-
-    if (
-      Number(invitado.acompanantes) > 0
-    ) {
+    if (Number(invitado.acompanantes) > 0) {
 
       const total =
         1 + Number(invitado.acompanantes);
@@ -244,6 +253,12 @@
         ${nombreCompleto}
       </strong>
 
+      ${
+        textoAdicional
+          ? `<span class="guest-personalization-extra">${limpiar(textoAdicional)}</span>`
+          : ""
+      }
+
       <span class="guest-personalization-people">
         ${textoPersonas}
       </span>
@@ -257,16 +272,15 @@
 
     if (botonAbrir) {
 
-      introContent.insertBefore(
-        tarjeta,
-        botonAbrir
+      // Ahora va DEBAJO del sobre
+      botonAbrir.insertAdjacentElement(
+        "afterend",
+        tarjeta
       );
 
     } else {
 
-      introContent.appendChild(
-        tarjeta
-      );
+      introContent.appendChild(tarjeta);
 
     }
 

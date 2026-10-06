@@ -3,18 +3,21 @@
     "id": "felipe-certuche",
     "nombre": "felipe",
     "apellido": "certuche",
-    "acompanantes": 2
+    "acompanantes": 2,
+    "textoAdicional": "y Familia"
   },
   {
     "id": "laura-gomez",
     "nombre": "Laura",
     "apellido": "Gómez",
-    "acompanantes": 1
+    "acompanantes": 1,
+    "textoAdicional": "y Esposo"
   },
   {
     "id": "maria-lopez",
     "nombre": "María",
     "apellido": "López",
-    "acompanantes": 0
+    "acompanantes": 0,
+    "textoAdicional": ""
   }
 ]

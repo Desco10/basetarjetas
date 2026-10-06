@@ -47,13 +47,12 @@ padres: {
 },
  
 colores: {
-  principal: "#5B9BCB",
-  secundario: "#BFDDF2",
-  acento: "#C7CCD1",
+  principal: "#3F82B8",
+  secundario: "#78B4DC",
+  acento: "#9FAAB5",
   fondo: "transparent",
   texto: "#17232D"
 },
-
 
 fondo: {
   habilitado: true,
