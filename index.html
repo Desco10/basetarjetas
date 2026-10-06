@@ -1272,14 +1272,30 @@
       Desarrollado con ♡ por
       
     
+
 <a
-  href="https://wa.me/573246030396?text=Hola%20%F0%9F%91%8B%20Me%20encant%C3%B3%20esta%20invitaci%C3%B3n%20digital%20y%20quiero%20tener%20una%20as%C3%AD%20para%20mi%20evento.%20%E2%9C%A8%20Me%20gustar%C3%ADa%20crear%20una%20invitaci%C3%B3n%20personalizada%2C%20elegante%20e%20interactiva%20para%20sorprender%20a%20mis%20invitados.%20%C2%BFMe%20pueden%20ayudar%20a%20crear%20la%20m%C3%ADa%3F%20%F0%9F%92%99"
+  href="#"
   target="_blank"
   rel="noopener noreferrer"
   class="footer-brand"
+  id="whatsappDesaDev"
 >
   DesaDev
 </a>
+
+<script>
+  const whatsappDesaDev = document.getElementById("whatsappDesaDev");
+
+  const mensaje = `Hola 👋 Me encantó esta invitación digital y quiero tener una así para mi evento. ✨ Me gustaría crear una invitación personalizada, elegante e interactiva para sorprender a mis invitados. ¿Me pueden ayudar a crear la mía? 💙
+
+Esta es la invitación que me gustó:
+${window.location.href}`;
+
+  whatsappDesaDev.href =
+    "https://wa.me/573246030396?text=" + encodeURIComponent(mensaje);
+</script>
+
+
     </p>
     <p class="footer-copy">
       © 2026 Todos los derechos reservados
