@@ -660,14 +660,16 @@ h2 {
 
 
 /* ==========================================
-   FOTO PRINCIPAL
+   FOTO PRINCIPAL — PREMIUM
+   Marco en arco, aro dorado y resplandor.
+   Sin cristal ni borde clásico.
 ========================================== */
 
 .main-photo {
 
   padding-top: 20px;
 
-  padding-bottom: 100px;
+  padding-bottom: 110px;
 
   display: flex;
 
@@ -679,27 +681,25 @@ h2 {
 
   position: relative;
 
-  width: min(90%, 500px);
+  isolation: isolate;
 
-  padding: 10px;
+  width: min(88%, 520px);
 
-  background:
-    rgba(255,255,255,0.72);
+  padding: 0;
 
-  border:
-    1px solid rgba(255,255,255,0.75);
+  border: none;
 
-  backdrop-filter:
-    blur(10px);
+  border-radius:
+    260px 260px 28px 28px;
 
-  -webkit-backdrop-filter:
-    blur(10px);
+  background: none;
 
-  box-shadow:
-    var(--glass-shadow),
-    var(--glass-inner);
+  animation:
+    photoFloat 7s ease-in-out infinite;
 }
 
+
+/* Aro dorado exterior en forma de arco */
 
 .photo-frame::before {
 
@@ -707,12 +707,57 @@ h2 {
 
   position: absolute;
 
-  inset: -10px;
+  inset: -14px;
 
   border:
-    1px solid var(--accent);
+    1.5px solid
+    color-mix(
+      in srgb,
+      var(--accent) 80%,
+      #fff
+    );
 
-  opacity: 0.72;
+  border-radius:
+    274px 274px 42px 42px;
+
+  opacity: 0.9;
+
+  pointer-events: none;
+}
+
+
+/* Resplandor suave detrás de la foto */
+
+.photo-frame::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -40px;
+
+  z-index: -1;
+
+  border-radius:
+    300px 300px 70px 70px;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      color-mix(
+        in srgb,
+        var(--primary) 45%,
+        transparent
+      ),
+      color-mix(
+        in srgb,
+        var(--accent) 22%,
+        transparent
+      ) 55%,
+      transparent 75%
+    );
+
+  filter: blur(26px);
 
   pointer-events: none;
 }
@@ -722,9 +767,36 @@ h2 {
 
   width: 100%;
 
-  height: 620px;
+  height: 680px;
 
   object-fit: cover;
+
+  object-position: center 25%;
+
+  border-radius:
+    260px 260px 28px 28px;
+
+  box-shadow:
+    0 35px 80px rgba(20, 35, 55, 0.32),
+    0 8px 22px rgba(20, 35, 55, 0.16);
+
+  filter:
+    saturate(1.08)
+    contrast(1.04);
+}
+
+
+@keyframes photoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
 }
 
 
@@ -747,6 +819,24 @@ h2 {
       ),
       transparent
     );
+}
+
+
+/* "FALTA MUY POCO": más grande y oscuro
+   (solo en esta sección) */
+
+.countdown-section .section-eyebrow {
+
+  color:
+    color-mix(
+      in srgb,
+      var(--primary) 60%,
+      #000
+    );
+
+  font-size: 1rem;
+
+  letter-spacing: 0.3em;
 }
 
 
@@ -788,7 +878,7 @@ h2 {
   border-radius: 18px;
 
   background:
-    rgba(255,255,255,0.48);
+    rgba(255,255,255,0.80);
 
   backdrop-filter:
     blur(14px);
@@ -821,11 +911,20 @@ h2 {
 
   display: block;
 
-  color: var(--primary);
+  color:
+    color-mix(
+      in srgb,
+      var(--primary) 55%,
+      #000
+    );
 
   font-family: var(--font-title);
 
-  font-size: 2.2rem;
+  font-size: 3rem;
+
+  font-weight: 700;
+
+  line-height: 1.1;
 }
 
 
@@ -835,14 +934,11 @@ h2 {
 
   margin-top: 5px;
 
-  color:
-    color-mix(
-      in srgb,
-      var(--text) 62%,
-      transparent
-    );
+  color: var(--text);
 
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+
+  font-weight: 600;
 
   letter-spacing: 0.12em;
 
@@ -2165,14 +2261,23 @@ h2 {
     0 0 14px rgba(255, 255, 255, 0.6);
 }
 /* ==========================================
-   CARRUSEL
+   CARRUSEL — MODELO LIMPIO Y AMPLIO
+   Sin borde, sin marco de cristal.
+   La foto ocupa todo el ancho disponible.
 ========================================== */
+
+/* Las secciones con carrusel usan más ancho */
+.gallery-section {
+
+  width: min(100%, 980px);
+}
+
 
 .carousel {
 
   position: relative;
 
-  width: min(100%, 650px);
+  width: min(100%, 860px);
 
   margin: 0 auto;
 
@@ -2186,19 +2291,15 @@ h2 {
 
   overflow: hidden;
 
-  border-radius: 8px;
+  border: none;
 
-  background:
-    rgba(255,255,255,0.45);
+  border-radius: 18px;
 
-  backdrop-filter:
-    blur(10px);
-
-  -webkit-backdrop-filter:
-    blur(10px);
+  background: none;
 
   box-shadow:
-    var(--glass-shadow);
+    0 28px 60px rgba(20, 35, 55, 0.22),
+    0 6px 18px rgba(20, 35, 55, 0.10);
 }
 
 
@@ -2223,7 +2324,7 @@ h2 {
 
   min-width: 100%;
 
-  padding: 8px;
+  padding: 0;
 }
 
 
@@ -2231,22 +2332,19 @@ h2 {
 
   width: 100%;
 
-  height: 550px;
+  height: min(82vh, 780px);
 
   object-fit: cover;
 
   object-position: center;
 
-  border-radius: 4px;
+  border-radius: 0;
+
+  box-shadow: none;
 
   filter:
-    contrast(1.08)
-    saturate(1.12)
-    brightness(1.03);
-
-  box-shadow:
-    0 20px 45px rgba(0,0,0,0.35);
-
+    contrast(1.04)
+    saturate(1.08);
 }
 
 
@@ -3090,6 +3188,15 @@ h2 {
   }
 
 
+  /* Galerías: la foto aprovecha casi todo el ancho */
+  .gallery-section {
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+  }
+
+
   .intro::before {
 
     inset: 12px;
@@ -3145,13 +3252,13 @@ h2 {
 
   .photo-frame {
 
-    width: 92%;
+    width: 84%;
   }
 
 
   .photo-frame img {
 
-    height: 500px;
+    height: 520px;
   }
 
 
@@ -3172,7 +3279,7 @@ h2 {
 
   .countdown-item span {
 
-    font-size: 1.7rem;
+    font-size: 2.4rem;
   }
 
 
@@ -3249,9 +3356,17 @@ h2 {
   }
 
 
+  .carousel-viewport {
+
+    border-radius: 14px;
+  }
+
+
   .carousel-slide img {
 
-    height: 500px;
+    height: auto;
+
+    aspect-ratio: 4 / 5;
   }
 
 
@@ -3357,13 +3472,13 @@ h2 {
 
   .countdown-item span {
 
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
 
   .photo-frame img {
 
-    height: 430px;
+    height: 450px;
   }
 
 }
@@ -3389,23 +3504,28 @@ h2 {
     animation: none;
   }
 
+  .photo-frame {
+    animation: none;
+  }
+
 }
 
 
 /* ==========================================
    SISTEMA DE CRISTAL
    Controlado desde EVENTO.cristal
+
+   Nota: .countdown-item, .photo-frame y
+   .carousel-viewport tienen su propio
+   estilo y ya no forman parte de esta lista.
 ========================================== */
 
 .hero-content,
-.photo-frame,
-.countdown-item,
 .message-card,
 .parents-card,
 .event-card,
 .reserved-colors,
-.gift-card,
-.carousel-viewport {
+.gift-card {
 
   background:
     rgba(
@@ -3440,11 +3560,10 @@ h2 {
 
 /* ==========================================
    CRISTAL FUERTE
-   Portada y fotografía principal
+   Portada
 ========================================== */
 
-.hero-content,
-.photo-frame {
+.hero-content {
 
   background:
     rgba(
@@ -3465,14 +3584,11 @@ h2 {
 ========================================== */
 
 .hero-content,
-.photo-frame,
-.countdown-item,
 .message-card,
 .parents-card,
 .event-card,
 .reserved-colors,
-.gift-card,
-.carousel-viewport {
+.gift-card {
 
   box-shadow:
     0 20px 60px rgba(20, 35, 55, 0.14),
