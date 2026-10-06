@@ -4252,3 +4252,94 @@ h2 {
   }
 
 }
+
+
+
+
+
+/* ==========================================
+   DESADEV - LLAMADA DE ATENCIÓN
+   PC + CELULAR
+   ========================================== */
+
+.footer-brand {
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease,
+    text-shadow 0.35s ease;
+
+  animation: desaDevAttention 4s ease-in-out infinite;
+}
+
+
+/* ==========================================
+   ANIMACIÓN AUTOMÁTICA
+   Funciona también en celulares
+   ========================================== */
+
+@keyframes desaDevAttention {
+
+  /* Estado normal */
+  0%,
+  65%,
+  100% {
+    color: inherit;
+    transform: scale(1);
+    text-shadow: none;
+  }
+
+  /* Comienza a llamar la atención */
+  70% {
+    color: #3F82B8;
+    transform: scale(1.06);
+    text-shadow:
+      0 0 6px rgba(63, 130, 184, 0.35);
+  }
+
+  /* Punto máximo */
+  76% {
+    color: #78B4DC;
+    transform: scale(1.12);
+    text-shadow:
+      0 0 7px rgba(120, 180, 220, 0.65),
+      0 0 16px rgba(120, 180, 220, 0.35);
+  }
+
+  /* Regresa suavemente */
+  83% {
+    color: #3F82B8;
+    transform: scale(1.05);
+    text-shadow:
+      0 0 5px rgba(63, 130, 184, 0.30);
+  }
+}
+
+
+/* ==========================================
+   PC - AL PASAR EL MOUSE
+   ========================================== */
+
+.footer-brand:hover {
+  color: #3F82B8;
+
+  transform: scale(1.10);
+
+  text-shadow:
+    0 0 8px rgba(63, 130, 184, 0.50),
+    0 0 18px rgba(120, 180, 220, 0.30);
+}
+
+
+/* ==========================================
+   CELULAR - AL TOCAR
+   ========================================== */
+
+.footer-brand:active {
+  transform: scale(0.97);
+}
+
