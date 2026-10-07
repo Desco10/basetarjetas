@@ -38,7 +38,7 @@ hora: "7:00 PM",
 fechaEvento: "2026-10-24T19:00:00",
 
   whatsapp: {
-  numero: "573246030396"
+  numero: "573146443417"
 },
  
 padres: {
