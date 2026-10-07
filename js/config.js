@@ -43,7 +43,7 @@ fechaEvento: "2026-10-24T19:00:00",
  
 padres: {
   padre: "Andres Ordoñez",
-  madre: "Yenni Urrea"
+  madre: "Yenny Urrea"
 },
  
 colores: {
@@ -100,7 +100,7 @@ cristal: {
   ubicacion: {
     nombre: "Salón Milan",
     direccion: "Dirección del evento",
-    maps: "https://share.google/cVRSlkT5BKEvAPO14"
+    maps: "https://maps.app.goo.gl/ACu3f6iXzyMPC1CN8"
   },
 
   vestimenta: "Formal",
