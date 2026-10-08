@@ -1283,17 +1283,32 @@
   DesaDev
 </a>
 
+<a
+  href="#"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="footer-brand"
+  id="whatsappConoceMas"
+>
+  Conoce más
+</a>
+
 <script>
   const whatsappDesaDev = document.getElementById("whatsappDesaDev");
+  const whatsappConoceMas = document.getElementById("whatsappConoceMas");
 
   const mensaje = `Hola 👋 Me encantó esta invitación digital y quiero tener una así para mi evento. ✨ Me gustaría crear una invitación personalizada, elegante e interactiva para sorprender a mis invitados. ¿Me pueden ayudar a crear la mía? 💙
 
 Esta es la invitación que me gustó:
 ${window.location.href}`;
 
-  whatsappDesaDev.href =
+  const enlaceWhatsApp =
     "https://wa.me/573246030396?text=" + encodeURIComponent(mensaje);
+
+  whatsappDesaDev.href = enlaceWhatsApp;
+  whatsappConoceMas.href = enlaceWhatsApp;
 </script>
+
 
 
     </p>
