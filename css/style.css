@@ -4343,3 +4343,96 @@ h2 {
   transform: scale(0.97);
 }
 
+
+
+/* ==========================================
+   CONOCE MÁS
+   Estilo elegante y discreto
+   ========================================== */
+
+.footer-more {
+  margin: 8px 0 10px;
+  text-align: center;
+}
+
+.footer-more-link {
+  display: inline-block;
+  position: relative;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  color: #3F82B8;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease,
+    text-shadow 0.35s ease;
+
+  animation: conoceMasElegante 4.5s ease-in-out infinite;
+}
+
+
+/* ==========================================
+   ANIMACIÓN
+   Cambio de color + pequeño crecimiento
+   ========================================== */
+
+@keyframes conoceMasElegante {
+
+  /* Estado normal */
+  0%,
+  65%,
+  100% {
+    color: #3F82B8;
+    transform: scale(1);
+    text-shadow: none;
+  }
+
+  /* Empieza a destacar */
+  70% {
+    color: #78B4DC;
+    transform: scale(1.035);
+    text-shadow:
+      0 0 5px rgba(120, 180, 220, 0.30);
+  }
+
+  /* Punto de atención */
+  76% {
+    color: #5B9BCB;
+    transform: scale(1.055);
+    text-shadow:
+      0 0 7px rgba(91, 155, 203, 0.35);
+  }
+
+  /* Regreso suave */
+  83% {
+    color: #3F82B8;
+    transform: scale(1.02);
+    text-shadow: none;
+  }
+}
+
+
+/* ==========================================
+   PC - AL PASAR EL MOUSE
+   ========================================== */
+
+.footer-more-link:hover {
+  color: #78B4DC;
+
+  transform: scale(1.055);
+
+  text-shadow:
+    0 0 7px rgba(120, 180, 220, 0.35);
+}
+
+
+/* ==========================================
+   CELULAR - AL TOCAR
+   ========================================== */
+
+.footer-more-link:active {
+  transform: scale(0.98);
+}
+
