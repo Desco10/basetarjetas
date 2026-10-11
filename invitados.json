@@ -38,8 +38,8 @@
     "id": "karen-silva",
     "nombre": "Karen",
     "apellido": "Silva Cano",
-    "acompanantes": 0,
-    "textoAdicional": ""
+    "acompanantes": 1,
+    "textoAdicional": "Y Eduardo Ceron"
   },
   {
     "id": "maria-silva",
@@ -227,8 +227,8 @@
     "id": "ancisar-munoz",
     "nombre": "Ancisar",
     "apellido": "Muñoz Moncayo",
-    "acompanantes": 0,
-    "textoAdicional": ""
+    "acompanantes": 1,
+    "textoAdicional": " y Marleny Viveros"
   },
   {
     "id": "claudia-munoz",
@@ -411,5 +411,33 @@
     "apellido": "Daza",
     "acompanantes": 1,
     "textoAdicional": "e hija"
+  },
+
+{
+    "id": "diana-ordonez",
+    "nombre": "Diana",
+    "apellido": "Ordoñez cobo",
+    "acompanantes": 1,
+    "textoAdicional": "y esposo"
+  },
+
+  {
+    "id": "sandra-cano",
+    "nombre": "Sandra Alexandra",
+    "apellido": "Cano",
+    "acompanantes": 1,
+    "textoAdicional": "y esposo"
+  }, 
+
+  {
+    "id": "mireya-ortega",
+    "nombre": "Mireya",
+    "apellido": "Ortega",
+    "acompanantes": 1,
+    "textoAdicional": "e hija"
   }
+ 
+
+
+
 ]
